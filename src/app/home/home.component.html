@@ -48,10 +48,10 @@
                 withState({{ '{' }} count: 0 {{ '}' }}),
                 withMethods((store) => ({{ '{' }}
                     increment: () => store.update(
-                    (state) => ({{ '{' }} count: state.count + 1 {{ '}' }})
+                      (state) => ({{ '{' }} count: state.count + 1 {{ '}' }})
                     ),
                     decrement: () => store.update(
-                    (state) => ({{ '{' }} count: state.count - 1 {{ '}' }})
+                      (state) => ({{ '{' }} count: state.count - 1 {{ '}' }})
                     )
                 {{ '}' }}))
             );
