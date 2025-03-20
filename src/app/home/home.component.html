@@ -1,0 +1,100 @@
+<div class="landing-page">
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <h1>NgRx Signal Store</h1>
+      <h2>Modern State Management for Angular Applications</h2>
+      <p>A powerful, intuitive state management solution built on Angular signals</p>
+      <div class="hero-buttons">
+        <button pButton pRipple label="Get Started" icon="pi pi-play" class="p-button-lg"></button>
+        <button pButton pRipple label="View on GitHub" icon="pi pi-github" class="p-button-outlined p-button-lg"></button>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="assets/hero-image.svg" alt="NgRx Signal Store" />
+    </div>
+  </section>
+
+  <p-divider></p-divider>
+
+  <!-- Features Section -->
+  <section class="features-section">
+    <h2 class="section-title">Why NgRx Signal Store?</h2>
+    <div class="features-grid">
+      <div class="feature-card" *ngFor="let feature of features">
+        <div class="feature-icon">
+          <i [class]="feature.icon"></i>
+        </div>
+        <h3>{{ feature.title }}</h3>
+        <p>{{ feature.description }}</p>
+      </div>
+    </div>
+  </section>
+
+  <p-divider></p-divider>
+
+  <!-- Code Sample Section -->
+  <section class="code-sample-section">
+    <h2 class="section-title">Simple and Intuitive API</h2>
+    <div class="code-sample-container">
+      <div class="code-explanation">
+        <h3>Create a store in seconds</h3>
+        <p>Define your state, add methods, and start using your store with minimal boilerplate.</p>
+        <button pButton pRipple label="View Documentation" icon="pi pi-file" class="p-button-secondary"></button>
+      </div>
+      <div class="code-example">
+        <pre>
+            export const counterStore = signalStore(
+                withState({{ '{' }} count: 0 {{ '}' }}),
+                withMethods((store) => ({{ '{' }}
+                    increment: () => store.update(
+                    (state) => ({{ '{' }} count: state.count + 1 {{ '}' }})
+                    ),
+                    decrement: () => store.update(
+                    (state) => ({{ '{' }} count: state.count - 1 {{ '}' }})
+                    )
+                {{ '}' }}))
+            );
+        </pre>
+      </div>
+    </div>
+  </section>
+
+  <p-divider></p-divider>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials-section">
+    <h2 class="section-title">What Developers Say</h2>
+    <div class="testimonials-container">
+      <p-card *ngFor="let testimonial of testimonials" styleClass="testimonial-card">
+        <ng-template pTemplate="header">
+          <div class="testimonial-header">
+            <p-avatar size="large" shape="circle" [label]="testimonial.name.charAt(0)"></p-avatar>
+            <div class="testimonial-author">
+              <h3>{{ testimonial.name }}</h3>
+              <p-chip [label]="testimonial.role"></p-chip>
+            </div>
+          </div>
+        </ng-template>
+        <p>"{{ testimonial.comment }}"</p>
+      </p-card>
+    </div>
+  </section>
+
+  <p-divider></p-divider>
+
+  <!-- Call to Action Section -->
+  <section class="cta-section">
+    <div class="cta-content">
+      <h2>Ready to transform your Angular app?</h2>
+      <p>Get started with NgRx Signal Store today and experience modern state management.</p>
+      <div class="cta-form">
+        <span class="p-input-icon-left">
+          <i class="pi pi-envelope"></i>
+          <input type="text" pInputText placeholder="Enter your email" />
+        </span>
+        <button pButton pRipple label="Subscribe" icon="pi pi-check"></button>
+      </div>
+    </div>
+  </section>
+</div>
