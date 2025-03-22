@@ -14,6 +14,7 @@ import { ChipModule } from 'primeng/chip';
   standalone: true,
   imports: [
     CommonModule,
+    RouterLink,
     ButtonModule,
     CardModule,
     DividerModule,
