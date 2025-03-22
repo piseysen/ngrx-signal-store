@@ -30,10 +30,9 @@ export class PostsService {
      this.initializeCollection();
     }
 
-    // Optional: Add this method if you want to initialize the collection with a document
+
     private async initializeCollection() {
       try {
-        // Create a reference to a specific document INSIDE the posts collection
         const docRef = doc(this.firestore, `${this.PATH}/${this.Id}`);
         const docSnap = await getDoc(docRef);
         
