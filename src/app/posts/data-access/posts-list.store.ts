@@ -41,6 +41,7 @@ export const PostsListStore = signalStore(
                 });
               },
               error: () => {
+                console.error('Error loading posts');
                 patchState(store, { ...postListInitialState }, { status: 'error' });
               },
             })

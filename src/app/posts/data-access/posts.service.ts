@@ -6,6 +6,9 @@ import {
     orderBy,
     query,
     limit,
+    doc,
+    getDoc,
+    setDoc,
   } from '@angular/fire/firestore';
   import { assignTypes } from '@core/utils/assign-type.util';
   import { Injectable, inject } from '@angular/core';
@@ -21,6 +24,37 @@ export class PostsService {
     private readonly PATH = 'posts';
     private readonly firestore = inject(Firestore);
     private readonly collection = collection(this.firestore, this.PATH).withConverter(assignTypes<Post>());
+
+    constructor() {
+      // create the collection if it doesn't exist
+     this.initializeCollection();
+    }
+
+    // Optional: Add this method if you want to initialize the collection with a document
+    private async initializeCollection() {
+      try {
+        // Create a reference to a specific document INSIDE the posts collection
+        const docRef = doc(this.firestore, `${this.PATH}/${this.Id}`);
+        const docSnap = await getDoc(docRef);
+        
+        if (!docSnap.exists()) {
+          await setDoc(docRef, { 
+            title: 'Initial post',
+            description: 'This is an initialization document',
+            date: new Date()
+          });
+          console.log('Collection initialized with initial post');
+        }
+      } catch (error) {
+        console.error('Error initializing collection:', error);
+      }
+    }
+
+    private get Id() {
+      const timestamp = new Date().getTime();
+      const random = Math.floor(Math.random() * 1000);
+      return `${timestamp}-${random}`;
+    }
   
     getPosts$(config: PostsListConfig): Observable<Post[]> {
       const { limit: qLimit, page, pageLastElements } = config;
@@ -34,3 +68,4 @@ export class PostsService {
       return collectionData(postCollection, { idField: 'id' });
     }
 }
+
