@@ -36,11 +36,10 @@ import { PostsListStore } from '../../data-access/posts-list.store';
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     ButtonModule,
-    RouterLink,
     PostCardComponent,
     PostCardSkeletonComponent,
-    PaginatorComponent,
-  ],
+    PaginatorComponent
+],
 })
 export class PostsListComponent {
   readonly listStore = inject(PostsListStore);

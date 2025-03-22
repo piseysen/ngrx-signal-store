@@ -13,7 +13,6 @@ import { ChipModule } from 'primeng/chip';
   selector: 'app-home',
   standalone: true,
   imports: [
-    RouterLink,
     CommonModule,
     ButtonModule,
     CardModule,
