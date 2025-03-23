@@ -38,7 +38,7 @@ NgRx Signal Store is a lightweight state management solution that leverages Angu
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/ngrx-signal-store.git
+git clone https://github.com/piseysen/ngrx-signal-store.git
 
 # Navigate to project folder
 cd ngrx-signal-store
